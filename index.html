@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>AngularJS</title>
+
+	<meta name="description" content="A presentation for explain the basics of AngularJs">
+	<meta name="author" content="Bryan Azofefia">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	<script>
+		if (window.location.search.match(/print-pdf/gi)) {
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = 'css/print/pdf.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		}
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section>
+	<h1>AngularJS</h1>
+	<h3>The Basics</h3>
+	<br><br>
+	<p>
+		<small>
+			Bryan Azofeifa B.
+			<br>
+			Follow me <a href="http://twitter.com/bryancr89">@bryancr89</a>
+		</small>
+	</p>
+</section>
+
+<section>
+	<h2>Agenda</h2>
+	<ul>
+		<li class="fragment">What's AngularJS</li>
+		<li class="fragment">Benefits</li>
+		<li class="fragment">Basic Example</li>
+		<li class="fragment">Templates</li>
+		<li class="fragment">Scopes</li>
+		<li class="fragment">Controllers</li>
+		<li class="fragment">Data binding</li>
+		<li class="fragment">Services</li>
+		<li class="fragment">Directives</li>
+		<li class="fragment">Routing</li>
+		<li class="fragment">Questions?</li>
+	</ul>
+</section>
+
+<section>
+	<h2>What's AngularJS</h2>
+	<p class="fragment">It's an MV* framework for build web apps!</p>
+	<p class="fragment">IMHO I think that AngularJS it's MVVM</p>
+</section>
+
+<section>
+	<h2>Benefits</h2>
+	<ul>
+		<li class="fragment">Declarative HTML</li>
+		<li class="fragment">Directives</li>
+		<li class="fragment">Templating</li>
+		<li class="fragment">Two way data binding</li>
+		<li class="fragment">Dependency Injection</li>
+		<li class="fragment">Routing</li>
+		<li class="fragment">Unit testing</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Templates</h2>
+	<p class="fragment">
+		The templates are HTML that probably contains directives and data binding.
+	</p>
+</section>
+
+<section>
+	<h2>Scopes</h2>
+	<p class="fragment">Scope is nothing but an object that Glues the View with Controller</p>
+</section>
+
+<section>
+	<section>
+		<h2>Controllers</h2>
+		<p class="fragment">Set up the initial state of the scope object.</p>
+		<p class="fragment">Add behavior to the scope object.</p>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>Basic Example</h2>
+	</section>
+
+	<section>
+		<pre>
+			<code><!--<html ng-app="appName">-->
+<!--You can specify the controller in the router-->
+<div ng-controller="GreetingCtrl">
+  {{greeting}}
+</div>
+			</code>
+		</pre>
+		<pre>
+			<code>// If minify this is going to fail.
+myApp.controller('GreetingCtrl', function($scope) {
+  $scope.greeting = 'Hello!';
+});
+			</code>
+		</pre>
+		<pre class="fragment">
+			<code>// Fixed
+myApp.controller('GreetingCtrl', ['$scope', function($scope) {
+  $scope.greeting = 'Hello!';
+}]);
+			</code>
+		</pre>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>Data binding</h2>
+	</section>
+	<section>
+		<img src="images/data-binding.png"
+		     alt="Down arrow">
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>Services</h2>
+		<p class="fragment">
+			Basically you should handle the app logic in services,
+			then you can reuse the service through the controllers.
+		</p>
+		<p class="fragment">The services are <b>Lazy instantiated</b> & <b>Singletons</b></p>
+		<p class="fragment">You can create a service using the methods (service, factory & provider)</p>
+
+	</section>
+
+	<section>
+		<h2>Example</h2>
+		<pre>
+			<code>app.service( 'myService', function() {
+  this.name = "default name";
+});
+
+app.factory( 'myFactory', function() {
+  var name = "default name";
+
+  return {
+    name: name
+  };
+});
+			</code>
+		</pre>
+	</section>
+</section>
+
+<section>
+	<h2>Directives</h2>
+	<p class="fragment">
+		Are markers on a DOM (Attr, element name, comment or CSS class) that attach a specified behavior to that DOM element
+		or even transform the DOM element and its children.
+	</p>
+	<p class="fragment">AngularJS provides directives like (ng-click, ng-repeat, etc).</p>
+	<p class="fragment">Also you can create your custom directives.</p>
+</section>
+
+<section>
+	<section>
+		<h2>Routing</h2>
+		<p class="fragment">
+			Makes easy to wire together controllers, view templates, and the current URL location in the browser.
+		</p>
+		<p class="fragment">ngRoute & ui.router are the most popular modules</p>
+	</section>
+
+	<section>
+		<h2>Example</h2>
+		<pre>
+			<code>var app = angular.module('angularDemo',
+  ['ngAnimate', 'ngCookies', 'ngTouch',
+   'ngSanitize', 'ui.router']);
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider.state('home', {
+    url: '/',
+    templateUrl: 'partials/main.html',
+    controller: 'MainCtrl'
+  });
+  $urlRouterProvider.otherwise('/');
+});
+			</code>
+		</pre>
+	</section>
+</section>
+
+<section>
+	<h1>Questions?</h1>
+</section>
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function () {
+				return !document.body.classList;
+			} },
+			{ src: 'plugin/markdown/marked.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/markdown/markdown.js', condition: function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+				hljs.initHighlightingOnLoad();
+			} },
+			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} },
+			{ src: 'plugin/notes/notes.js', async: true, condition: function () {
+				return !!document.body.classList;
+			} }
+		]
+	});
+
+</script>
+
+</body>
+</html>

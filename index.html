@@ -17,6 +17,8 @@
 	<!-- For syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 
+	<link rel="stylesheet" href="css/site.css">
+
 	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 	<script>
 		if (window.location.search.match(/print-pdf/gi)) {
@@ -57,6 +59,7 @@
 	<ul>
 		<li class="fragment">What's AngularJS</li>
 		<li class="fragment">Benefits</li>
+		<li class="fragment">Disadvantages</li>
 		<li class="fragment">Basic Example</li>
 		<li class="fragment">Templates</li>
 		<li class="fragment">Scopes</li>
@@ -65,7 +68,9 @@
 		<li class="fragment">Services</li>
 		<li class="fragment">Directives</li>
 		<li class="fragment">Routing</li>
-		<li class="fragment">Questions?</li>
+		<li class="fragment">Routing</li>
+		<li class="fragment">Questions About Angular?</li>
+		<li class="fragment">What is my recommendation?</li>
 	</ul>
 </section>
 
@@ -89,9 +94,19 @@
 </section>
 
 <section>
+	<h2>Disadvantages</h2>
+	<ul>
+		<li class="fragment">Slow on large apps!!</li>
+		<li class="fragment">So much magic (two way data binding)</li>
+		<li class="fragment">Dirty checking isn't good</li>
+		<li class="fragment">Angular 2.X is not quite similar</li>
+	</ul>
+</section>
+
+	<section>
 	<h2>Templates</h2>
 	<p class="fragment">
-		The templates are HTML that probably contains directives and data binding.
+		The templates are HTML that contains directives and data binding.
 	</p>
 </section>
 
@@ -144,7 +159,7 @@ myApp.controller('GreetingCtrl', ['$scope', function($scope) {
 		<h2>Data binding</h2>
 	</section>
 	<section>
-		<img src="images/data-binding.png"
+		<img class="data-binding" src="images/data-binding.png"
 		     alt="Down arrow">
 	</section>
 </section>
@@ -220,7 +235,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 </section>
 
 <section>
-	<h1>Questions?</h1>
+	<h1>Questions About Angular?</h1>
+</section>
+
+<section>
+	<h1>What is my recommendation?</h1>
+	<p class="fragment">Don't waste your time learning a framework, library like (Angular, React, Ember)</p>
+	<p class="fragment">...yet!</p>
+	<p class="fragment">Learn JS first!!</p>
+
 </section>
 
 </div>

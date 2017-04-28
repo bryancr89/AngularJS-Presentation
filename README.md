@@ -15,3 +15,16 @@ grunt serve
 ```
 
 Then go to [Localhost:8080](http://localhost:8080/).
+
+## Agenda
+    - What's AngularJS
+    - Benefits of using it
+    - Disadvantages
+    - Basic Example
+    - Templates
+    - Scopes
+    - Controller
+    - Data binnding
+    - Services
+    - Routing
+    - Questions? 
